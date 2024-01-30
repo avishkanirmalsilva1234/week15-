@@ -31,9 +31,6 @@ app.get('/', (req, res, next) => {
     res.send('select a collection, e.g.,/collection/messages')
 })
 
-app.listen(3000, () => {
-    console.log('Express.js server running at localhost:3000')
-})
 
 //get the collection name 
 app.param('collectionName', (req, res, next, collectionName) =>{
@@ -89,3 +86,6 @@ if (e) return next(e)
 res.send((result.result.n === 1) ? {msg: 'success'} : {msg: 'error'})
 })
 })
+
+const port= process.env.PORT || 3000
+app.listen(port)
